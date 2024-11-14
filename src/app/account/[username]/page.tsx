@@ -4,15 +4,10 @@ import { getUserPosts, getUserId } from "@/lib/posts/actions"
 import { AppSidebar } from "@/components/app-sidebar"; 
 import { SidebarProvider } from "@/components/ui/sidebar";
 
-interface AccountPageProps {
-    params: {
-      username: string;
-    };
-}
+type Params = Promise<{username: string}>
 
-export default async function Account({ params }: Awaited<AccountPageProps>) {
-
-    const { username } = params;
+export default async function Account({ params }: { params: Params }) {
+    const { username } = await params;
     const userId = await getUserId({ username });
     const posts = await getUserPosts({ user: userId });
 
