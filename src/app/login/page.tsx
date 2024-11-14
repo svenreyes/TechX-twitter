@@ -24,12 +24,10 @@ export default function LoginPage(){
                         <Label className="text-white font-bold font-roboto"htmlFor="email">Email</Label>
                         <Input type="email" placeholder="email" value={email} onChange={(event) => {
                             setEmail(event.target.value)
-                            console.log(event.target.value);
                         }}/>
                         <Label className="text-white font-bold font-roboto" htmlFor="password">Password</Label>
                         <Input type="password" placeholder="password" value={password} onChange={(event) =>{
                             setPassword(event.target.value);
-                            console.log(event.target.value);
                         }}/>
                         <Button onClick={() => {login({email,password})}}>Log in</Button>
                         <Link href="/signup">
