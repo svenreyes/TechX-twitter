@@ -10,7 +10,7 @@ interface AccountPageProps {
     };
 }
 
-export default async function Account({ params }: AccountPageProps) {
+export default async function Account({ params }: Awaited<AccountPageProps>) {
 
     const { username } = params;
     const userId = await getUserId({ username });
