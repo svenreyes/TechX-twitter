@@ -32,7 +32,7 @@ I built this as my **TechX initiation project** to showcase full-stack fundament
 
 ---
 
-🧭 Project Tour (for reviewers)
+## Project Tour
 
 /src/app – App Router pages and route handlers
 
@@ -44,7 +44,7 @@ I built this as my **TechX initiation project** to showcase full-stack fundament
 
 ---
 
-🔒 Security & Auth Notes
+## Security & Auth Notes
 
 Protected routes require a valid session from Supabase Auth.
 
