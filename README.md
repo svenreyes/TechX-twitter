@@ -1,39 +1,53 @@
-access site here: [tech-x-twitter.vercel.app](https://tech-x-twitter.vercel.app/)
+# TechX Twitter — a campus microblog for UNC TechX
 
+A lightweight Twitter-style feed for TechX members to post updates, react, and keep the convo going.  
+I built this as my **TechX initiation project** to showcase full-stack fundamentals and ship a clean, modern social app experience.
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+> - Demonstrates product thinking: scoped a simple, sticky social experience for a real community.  
+> - Shows delivery: auth, posting, feed, and UI polish in a modern Next.js stack.  
+> - Highlights pragmatic tradeoffs: Supabase for auth + data, Vercel for ship-fast hosting.
 
-## Getting Started
+---
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Member feed**: create short posts to share updates with the org  
+- **Auth**: email or OAuth (via Supabase)  
+- **Modern UI**: responsive layout, accessible components, keyboard-friendly  
+- **Fast DX**: TypeScript, Next.js App Router, Tailwind, and shadcn/ui  
+- **Deploy-first mindset**: built for Vercel; easy local spin-up for reviewers
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> 📌 **Note on the live demo**  
+> This was running on a Supabase project. Free projects can hibernate/expire after inactivity.  
+> If the demo is asleep, clone and run locally in 2–3 minutes (see below) or re-provision Supabase using the env vars section.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧱 Tech Stack
 
-## Learn More
+- **Framework**: Next.js (App Router) + TypeScript  
+- **UI**: Tailwind CSS, shadcn/ui  
+- **Auth & DB**: Supabase (Postgres + Auth)  
+- **Hosting**: Vercel
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🧭 Project Tour (for reviewers)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+/src/app – App Router pages and route handlers
 
-## Deploy on Vercel
+/src/components – Reusable UI components (shadcn/ui styled)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+/src/lib – Client helpers (e.g., Supabase client) and utilities
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+/public – Static assets
+
+---
+
+🔒 Security & Auth Notes
+
+Protected routes require a valid session from Supabase Auth.
+
+RLS policies ensure users can only create and read posts as permitted.
+
+Client keys are anon keys; privileged operations must remain server-side.
